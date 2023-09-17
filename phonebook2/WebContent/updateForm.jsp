@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "com.javaex.vo.PersonVo" %> 
-<%@ page import = "com.javaex.dao.PersonDao" %> 
+<%@ page import = "com.javaex.dao.PersonDao2" %> 
 <%@ page import="java.util.*"%>
 
 
 
 <%
-
 int personID = Integer.parseInt(request.getParameter("id"));
-PersonDao personDao = new PersonDao();
+PersonDao2 personDao = new PersonDao2();
 PersonVo personVo = personDao.personSelectOne(personID);
 System.out.println(personVo);
 

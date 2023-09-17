@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "com.javaex.vo.PersonVo" %> 
-<%@ page import = "com.javaex.dao.PersonDao" %> 
+<%@ page import = "com.javaex.dao.PersonDao2" %> 
 <%@ page import="java.util.*"%>
 <%
-	//파라미터의 값 꺼내오기
+//파라미터의 값 꺼내오기
 	String name = request.getParameter("name");
 	String hp = request.getParameter("hp");
 	String company = request.getParameter("company");
@@ -18,12 +18,11 @@
 
 	System.out.println(personVo);
 	//Dao를 통해서 데이터 저장
-	PersonDao personDao = new PersonDao();
+	PersonDao2 personDao = new PersonDao2();
 	int count = personDao.personInsert(personVo);
 	
 	List<PersonVo> personList = personDao.personSelect("");
 	System.out.println(personList);
-	
 %> 
 <!DOCTYPE html>
 <html>

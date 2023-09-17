@@ -16,7 +16,7 @@
 	<p>등록된 전화번호 리스트 입니다.</p>
 
 	<!-- 반복문시작 -->
-	<c:forEach items="${pList}" var="personVo">
+	<c:forEach items="${personList}" var="personVo">
 	<table border="1">
 		<tr>
 			<td>이름(name)</td>

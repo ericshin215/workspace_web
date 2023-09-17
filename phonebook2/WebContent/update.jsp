@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "com.javaex.vo.PersonVo" %> 
-<%@ page import = "com.javaex.dao.PersonDao" %> 
+<%@ page import = "com.javaex.dao.PersonDao2" %> 
 <%@ page import="java.util.*"%>
 
 
@@ -21,11 +21,10 @@ int personId = Integer.parseInt(request.getParameter("id"));
 	
 	System.out.println(personVo);
 	//Dao를 통해서 데이터 저장
-	PersonDao personDao = new PersonDao();
+	PersonDao2 personDao = new PersonDao2();
 	int count = personDao.personUpdate(personVo);
 	
 	response.sendRedirect("./list.jsp");
-
 %>
 <!DOCTYPE html>
 <html>

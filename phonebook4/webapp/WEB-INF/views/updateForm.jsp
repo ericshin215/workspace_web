@@ -3,7 +3,7 @@
 
 
 
-<%@ page import="com.javaex.dao.PersonDao"%>
+<%@ page import="com.javaex.dao.PersonDao2"%>
 <%@ page import="com.javaex.vo.PersonVo"%>
 
 
