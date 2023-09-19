@@ -23,7 +23,7 @@
 				<h2>게시판</h2>
 				<ul>
 					<li><a href="">일반게시판</a></li>
-					<li><a href="${pageContext.request.contextPath}/rboard/list">댓글게시판</a></li>
+					<li><a href="">댓글게시판</a></li>
 				</ul>
 			</div>
 			<!-- //aside -->
@@ -31,12 +31,12 @@
 			<div id="content">
 
 				<div id="content-head">
-					<h3>게시판</h3>
+					<h3>댓글게시판</h3>
 					<div id="location">
 						<ul>
 							<li>홈</li>
 							<li>게시판</li>
-							<li class="last">일반게시판</li>
+							<li class="last">댓글게시판</li>
 						</ul>
 					</div>
 					<div class="clear"></div>
@@ -45,7 +45,7 @@
 
 				<div id="board">
 					<div id="list">
-						<form action="list" method="">
+						<form action="search" method="">
 							<div class="form-group text-right">
 								<input type="text" name="word">
 								<button type="submit" id=btn_search>검색</button>
@@ -54,25 +54,31 @@
 						<table>
 							<thead>
 								<tr>
-									<th>번호</th>
-									<th>제목</th>
-									<th>글쓴이</th>
-									<th>조회수</th>
+									<th>no</th>
+									<th>title</th>
+									<th>name</th>
+									<th>hit</th>
 									<th>작성일</th>
+									<th>group_no</th>
+									<th>order_no</th>
+									<th>depth</th>
 									<th>관리</th>
 								</tr>
 							</thead>
 							<tbody >
 							
-							<c:forEach items="${boardList}" var="boardVo">
+							<c:forEach items="${rboardList}" var="rboardVo">
 								<tr>
-									<td>${boardVo.no}</td>
-									<td class="text-left"><a href="${pageContext.request.contextPath}/board/read?no=${boardVo.no}">${boardVo.title}</a></td>
-									<td>${boardVo.name}</td>
-									<td>${boardVo.hit}</td>
-									<td>${boardVo.reg_date}</td>
-									<c:if test="${boardVo.userNo == authUser.no}" >
-							<td><a href="${pageContext.request.contextPath}/board/delete?no=${boardVo.no}">[삭제]</a></td>
+									<td>${rboardVo.no}</td>
+									<td class="text-left"><a href="${pageContext.request.contextPath}/rboard/read?no=${rboardVo.no}">${rboardVo.title}</a></td>
+									<td>${rboardVo.name}</td>
+									<td>${rboardVo.hit}</td>
+									<td>${rboardVo.reg_date}</td>
+									<td>${rboardVo.group_no}</td>
+									<td>${rboardVo.order_no}</td>
+									<td>${rboardVo.depth}</td>
+									<c:if test="${rboardVo.userNo == authUser.no}" >
+							<td><a href="${pageContext.request.contextPath}/rboard/delete?no=${rboardVo.no}">[삭제]</a></td>
 							</c:if>
 									
 								</tr>
@@ -101,8 +107,9 @@
 
 							<div class="clear"></div>
 						</div>
-						<a id="btn_write" href="${pageContext.request.contextPath}/board/writeForm">글쓰기</a>
-
+						<c:if test="${authUser.no != null}" >
+						<a id="btn_write" href="${pageContext.request.contextPath}/rboard/writeForm">글쓰기</a>
+						</c:if>
 					</div>
 					<!-- //list -->
 				</div>

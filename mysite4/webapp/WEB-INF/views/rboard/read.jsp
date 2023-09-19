@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,10 +15,11 @@
 <body>
 	<div id="wrap">
 
+
 		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+		<!-- //header -->
 
 
-		<!-- //nav -->
 
 		<div id="container" class="clearfix">
 			<div id="aside">
@@ -48,39 +47,53 @@
 				<!-- //content-head -->
 
 				<div id="board">
-					<div id="writeForm">
-						<form action="write" method="get">
-							
+					<div id="read">
+						<form action="${pageContext.request.contextPath}/rboard/writeForm" method="get">
+							<!-- 작성자 -->
+							<div class="form-group">
+								<span class="form-text">작성자</span> <span class="form-value">${rboardVo.name}</span>
+							</div>
 
+							<!-- 조회수 -->
+							<div class="form-group">
+								<span class="form-text">조회수</span> <span class="form-value">${rboardVo.hit}</span>
+							</div>
 
-
+							<!-- 작성일 -->
+							<div class="form-group">
+								<span class="form-text">작성일</span> <span class="form-value">${rboardVo.reg_date}</span>
+							</div>
 
 							<!-- 제목 -->
 							<div class="form-group">
-								<label class="form-text" for="txt-title">제목</label> <input type="text" id="txt-title" name="title" value="" placeholder="제목을 입력해 주세요">
+								<span class="form-text">제 목</span> <span class="form-value">${rboardVo.title}</span>
 							</div>
 
 							<!-- 내용 -->
-							<div class="form-group">
-								<textarea id="txt-content" name="content"></textarea>
+							<div id="txt-content">
+								<span class="form-value"> ${rboardVo.content} </span>
 							</div>
-
-							<a id="btn_cancel" href="${pageContext.request.contextPath}/rboard/list">취소</a>
-							<button id="btn_add" type="submit">등록</button>
-
+							<c:if test="${rboardVo.userNo == authUser.no}">
+								<a id="btn_modify" href="${pageContext.request.contextPath}/rboard/modifyForm?no=${rboardVo.no}">수정</a>
+							</c:if>
+							<a id="btn_modify" href="${pageContext.request.contextPath}/rboard/list">목록</a>
+							<c:if test="${authUser.no != null}">
+								<button id="btn_modify" type="submit">글쓰기</button>
+							</c:if>
+							<input type="hidden" name="group_no" value="${rboardVo.group_no}">
+								<input type="hidden" name="order_no" value="${rboardVo.order_no}">
+								<input type="hidden" name="depth" value="${rboardVo.depth}">
 						</form>
 						<!-- //form -->
 					</div>
-					<!-- //writeForm -->
+					<!-- //read -->
 				</div>
 				<!-- //board -->
 			</div>
 			<!-- //content  -->
 
-
 		</div>
 		<!-- //container  -->
-
 
 		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 		<!-- //footer -->

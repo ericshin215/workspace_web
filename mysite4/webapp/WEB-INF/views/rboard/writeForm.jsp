@@ -50,11 +50,6 @@
 				<div id="board">
 					<div id="writeForm">
 						<form action="write" method="get">
-							
-
-
-
-
 							<!-- 제목 -->
 							<div class="form-group">
 								<label class="form-text" for="txt-title">제목</label> <input type="text" id="txt-title" name="title" value="" placeholder="제목을 입력해 주세요">
@@ -65,9 +60,13 @@
 								<textarea id="txt-content" name="content"></textarea>
 							</div>
 
-							<a id="btn_cancel" href="${pageContext.request.contextPath}/rboard/list">취소</a>
+							<a id="btn_cancel" href="${pageContext.request.contextPath}/board/list">취소</a>
 							<button id="btn_add" type="submit">등록</button>
-
+							<c:if test="${ !empty param.group_no }">
+								<input type="text" name="group_no" value="${param.group_no}">
+								<input type="text" name="order_no" value="${param.order_no}">
+								<input type="text" name="depth" value="${param.depth}">
+							</c:if>
 						</form>
 						<!-- //form -->
 					</div>
@@ -82,7 +81,7 @@
 		<!-- //container  -->
 
 
-		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>	
 		<!-- //footer -->
 	</div>
 	<!-- //wrap -->

@@ -15,10 +15,10 @@ public class BoardDao {
 	private SqlSession sqlSession;
 	
 	
-	public List<BoardVo> boardSelectList() {
+	public List<BoardVo> boardSelectList(String word) {
 		System.out.println("BoardDao.boardSelecList()");
 		
-		List<BoardVo> boardList = sqlSession.selectList("board.selectList");
+		List<BoardVo> boardList = sqlSession.selectList("board.selectList", word);
 		
 		return boardList;
 	}
@@ -60,8 +60,16 @@ public class BoardDao {
 		
 	}
 	
-	public void deleteBoard() {
+	public void deleteBoard(int no) {
 		
+		sqlSession.delete("board.deleteBoard", no);
+		
+	}
+	
+	public List<BoardVo> searchList(String word) {
+		List<BoardVo> boardList = sqlSession.selectList("board.searchList", word);
+		
+		return boardList;
 	}
 	
 

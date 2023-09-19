@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rboard">
+	<!-- 전체리스트 가져오기 -->
+	<select id="selectList" resultType="com.javaex.vo.RBoardVo">
+	<![CDATA[
+	SELECT  rb.no,
+        	rb.title,
+        	rb.content,
+        	US.name,
+        	rb.hit,
+        	TO_CHAR(rb.reg_date, 'YYYY-MM-DD HH:MI') reg_date,
+        	rb.group_no,
+        	rb.order_no,
+        	rb.depth,
+        	US.no userNo
+	FROM rboard rb, users US
+	WHERE  rb.user_no = US.no
+	order by rb.group_no DESC, rb.order_no ASC
+
+	]]>
+	</select>
+	
+	
+	<update id="rupdateHit" parameterType="int">
+	<![CDATA[
+	update rboard	
+	set hit = hit+1
+	where no = #{no}
+	]]>
+	</update>
+	
+	
+	<select id="selectOne" parameterType="int" resultType="com.javaex.vo.RBoardVo">
+	<![CDATA[	
+	SELECT  r.no,
+       		r.title,
+        	r.content,
+        	r.hit,
+        	TO_CHAR(r.reg_date, 'YYYY-MM-DD HH:MI') reg_date,
+        	r.user_no userNo,
+        	u.name,
+        	r.group_no,
+        	r.order_no,
+        	r.depth
+	from rboard r, users u
+	where r.user_no = u.no
+	and r.no = #{no}
+
+	]]>
+	</select>
+	
+	<insert id="insertrBoard" parameterType="com.javaex.vo.RBoardVo">  
+		 INSERT INTO rboard
+		<if test="group_no != 0">
+			VALUES(seq_rboard_no.nextVal,#{title} , #{content},0, sysdate , #{group_no},#{order_no}+1,#{depth}+1,#{userNo})
+		</if>
+
+		<if test="group_no == 0">
+			VALUES(seq_rboard_no.nextVal, #{title} , #{content},0, sysdate , seq_rboard_group_no.nextval,1,0,#{userNo})
+		</if>
+	</insert>
+
+
+</mapper>

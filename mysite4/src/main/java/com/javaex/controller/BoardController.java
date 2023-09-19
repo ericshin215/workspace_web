@@ -24,11 +24,11 @@ public class BoardController {
 	
 	//리스트
 	@RequestMapping(value="/board/list", method= {RequestMethod.GET, RequestMethod.POST})
-	public String list(Model model) {
+	public String list(@RequestParam(value="word", required = false, defaultValue = "") String word, Model model) {
 		System.out.println("BoardController.list()");
 		
 		//boardService를 통해서 리스트를 가져온다
-		List<BoardVo> boardList = boardService.getBoardList();	
+		List<BoardVo> boardList = boardService.getBoardList(word);	
 		
 		
 		//모델에 리스트를 담는다(포워드)
@@ -117,7 +117,21 @@ public class BoardController {
 		
 	}
 	
+	@RequestMapping(value="board/delete", method= {RequestMethod.GET, RequestMethod.POST})
+	public String delete(@RequestParam(value="no") int no) {
+		
+		System.out.println("BoardController.delete()");
+		
+		
+		boardService.deleteBoard(no);
+		
+		return "redirect:list";
+		
+		
+	}
 	
+	
+
 	
 		
 	}

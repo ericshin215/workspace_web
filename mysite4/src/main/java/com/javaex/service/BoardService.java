@@ -17,10 +17,10 @@ public class BoardService {
 	
 	
 	//게시판 리스트 가져오기
-	public List<BoardVo> getBoardList(){
+	public List<BoardVo> getBoardList(String word){
 		System.out.println("BoardService.getBoardList()");
 		
-		List<BoardVo> boardList = boardDao.boardSelectList();
+		List<BoardVo> boardList = boardDao.boardSelectList(word);
 		
 		return boardList;
 		
@@ -50,13 +50,32 @@ public class BoardService {
 		
 	}
 	
-public void updateBoard(BoardVo boardVo) {
+	public void updateBoard(BoardVo boardVo) {
 		
 		boardDao.updateBoard(boardVo);
 		
 		
 		
 	}
+	
+	public void deleteBoard(int no) {
+		
+		boardDao.deleteBoard(no);
+		
+		
+		
+	}
+	
+	public List<BoardVo> searchList(String word){
+		System.out.println("BoardService.getBoardList()");
+		
+		List<BoardVo> boardList = boardDao.searchList(word);
+		
+		return boardList;
+		
+	}
+	
+	
 	
 
 
