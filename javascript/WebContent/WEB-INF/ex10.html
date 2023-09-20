@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+<script type="text/javascript">
+
+        //(2)위에서 부터 순서대로 해석
+        let test = function(){
+            console.log("testA함수 입니다.");
+        }
+
+        //(1)선언적 함수가 가장 먼저 해석됨
+        function test(){
+            console.log("testB함수 입니다.");
+        } 
+
+        //(3)번
+        test();
+
+
+</script>
+
+
+</body>
+</html>

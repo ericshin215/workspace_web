@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<h1>자바스크립트</h1>
+	<h2>이벤트</h2>
+	
+	<div>
+	<h3 id="">이름출력영역</h3>
+	<button id ='btn' type="button">테스트 버튼</button>
+	
+	</div>    
+
+	
+	
+</head>
+<body>
+
+<script type="text/javascript">
+
+window.onload = function(){
+	console.log("화면 모두 출력후");
+	/*상상
+	let testButton={
+		tag: "button",
+		type: "button",
+		innerHTML: "테스트버튼",
+		onclick: function(){}
+	}
+	
+	let testArea={
+		id: "display"
+		tag: "h3",
+		
+		innerHTML: "이름출력영역",
+		onclick: function(){}
+	}
+	*/
+	
+	let testButton = document.getElementById("btn");
+	testButton.onclick = function(){
+		console.log("버튼클릭");
+		testArea.innerHTML = "홍길동"
+	}; 
+}	
+
+
+</script>
+</body>
+</html>

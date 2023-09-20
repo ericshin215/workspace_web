@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<input id="left" class="red" type="text" value="">
+	 + 
+	<input id="right" type="text" value=""> 
+	
+	<br>
+	
+	<button id="btnPlus" class="red" type="button" value="+" >더하기</button>
+
+	<p id="display">0</p>
+
+</body>
+
+<script type="text/javascript">
+
+//필요한 태그를 js객체화
+let btn = document.getElementsByTagName("button")
+console.log(btn);
+
+
+let inputs =document.getElementsByTagName("input"); //태크로 가져오기
+console.log(inputs);
+console.log(inputs[0]);
+console.log(inputs[1]);
+
+let tags =document.getElementsByTagName("red"); //태크로 가져오기
+console.log(tags);
+console.log(tags[0]);
+console.log(tags[1]);
+
+
+//태그를 js객체화
+let btnPlus =document.getElementById("btnPlus"); //태크로 가져오기
+console.log(btnPlus);
+
+let textLeft =document.getElementById("left");
+let textRight =document.getElementById("right");
+let pDisplay = document.getElementById("display");
+
+//이벤트 잡기
+btnPlus.onclick = function(){
+	console.log("더하기버튼 클릭");
+	
+	let leftNo = parseInt(textLeft.value);
+	let rightNo = Number(textRight.value);
+
+	
+	let sum = leftNo +rightNo;
+	console.log(sum);
+	
+	pDisplay.innerHTML = sum;
+}
+
+
+
+</script>
+
+
+
+
+</html>
