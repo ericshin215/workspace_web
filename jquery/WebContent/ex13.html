@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="./jquery/jquery-1.12.4.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<!--$(this)-->
+	<ul>
+		<li id="first" class="red" data-bno="1" data-pno="5">첫번째 아이템입니다.</li>
+		<li id="second" class="blue" data-bno="2" data-pno="4"><strong>두번째 아이템입니다.</strong></li>
+		<li id="third" class="del" data-bno="3" data-pno="5">세번째아이템입니다.</li>
+		<li data-bno="4" data-pno="3"><strong>네번째 아이템입니다.</strong></li>
+	</ul>
+	<button>버튼</button>
+</body>
+<script>
+/*	
+	$("#first").on("click", function(){
+		console.log("첫번째거 클릭");
+		let id = $("#first").attr("id");
+		console.log(id);
+
+		let clz = $("#first").attr("class");	
+		console.log(clz);
+		
+	});
+	
+	$("#second").on("click", function(){
+		console.log("두번째꺼 클릭");
+		let id = $("#second").attr("id");
+		console.log(id);
+
+		let clz = $("#second").attr("class");	
+		console.log(clz);
+		
+	});
+*/	
+
+	$("li").on("click", function(){
+		console.log("li태그 클릭");
+		//console.log($("li"));
+		//console.log($(this));
+		/*
+		let id = $(this).attr("id");
+		console.log(id);
+		
+		let clz = $(this).attr("class");
+		console.log(clz);
+		*/
+		
+		/*
+		let bNo = $(this).data("bno");
+		let pNo = $(this).data("pno");		
+		
+		let boardVo = {
+			bNo: bNo,
+			pNo: pNo
+		}
+		console.log(boardVo);
+		
+		console.log($(this).text());
+		*/
+		
+
+		let $this =  $(this);
+		let bNo = $this.data("bno");
+		let pNo = $this.data("pno");	
+		
+		let boardVo = {
+			bNo: bNo,
+			pNo: pNo
+		}
+		console.log(boardVo);
+		console.log($this.text());
+		
+	});
+
+</script>
+
+
+</html>

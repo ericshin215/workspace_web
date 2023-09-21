@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="./jquery/jquery-1.12.4.js"></script>
+<title>Insert title here</title>
+
+	<style>
+		ul {
+			background-color: blue; 
+			padding: 20px;
+		}
+		
+		li {
+			background-color: gray;
+			border: 1px solid black; 
+		}
+		
+		
+	</style>
+
+
+</head>
+<body>
+	
+	<ul>
+		<li id="first" class="red" data-bno="1" data-pname="정우성">첫번째 아이템입니다.</li>
+		<li id="second" class="blue" data-bno="2" data-pname="정우성"><strong>두번째 아이템입니다.</strong></li>
+		<li id="third" class="del" data-bno="3" data-pname="유재석">세번째아이템입니다.</li>
+		<li data-bno="4" data-pname="박명수"><strong>네번째 아이템입니다.</strong></li>
+		
+	</ul>
+	<button id="btn" type="button">li요소추가</button>
+	<br>
+	<br>
+	<button id="datBtn" type="button">전체데이터수집</button>
+	
+	
+	
+</body>
+
+<script>
+	
+	//버튼클릭할때
+	$("#btn").on("click", function(){
+		console.log("버튼클릭");
+		
+		let str =  "";
+		str += "<li data-bno='5' data-pname='이효리'>다섯번째 아이템입니다.</li>";
+		str += "<li data-bno='6' data-pname='김종국'>여섯번째 아이템입니다.</li>";
+		str += "<li data-bno='7' data-pname='서장훈'>일곱번째 아이템입니다.</li>";
+		
+		$("ul").append(str);
+	});
+	
+	
+	//li태그를 클릭했을때
+	/*
+	$("li").on("click", function(){
+		console.log("li태그를 클릭");
+		
+		let $this = $(this);
+		let str = $this.text();
+		console.log(str)
+	});
+	*/
+	
+	//ul태그를 클릭했을때 (위임)
+	$("ul").on("click", "li", function(){
+		console.log("ul클릭");
+		let $this = $(this);
+			
+		let str = $this.text();
+		console.log(str)
+		
+		//$this.remove();
+	});
+	
+	
+	//데이터 수집 버튼클릭할때
+	$("#datBtn").on("click", function(){
+		console.log("데이타수집버튼 클릭");
+		//
+		let liTags = $("li");
+		//console.log(liTags);
+		//js for문사용
+		for(let i=0; i<liTags.length; i++){
+			let bno = $(liTags[i]).data("bno");
+			//console.log(bno);
+		}
+		
+		//jquery each()
+		let boardList = [];
+		$("li").each(function(index, item){
+			let $this = $(this);
+			let bNo = $this.data("bno");
+			let pName = $this.data("pname");
+			let str = $this.text();
+
+			let boardVo ={
+				boardNo: bNo,
+				personName: pName,
+				content: str
+			};
+			
+			boardList.push(boardVo);
+		});
+		
+		console.log(boardList);
+		console.log(boardList[1]);
+
+	});
+	
+	
+</script>
+
+
+
+
+
+
+
+
+</html>

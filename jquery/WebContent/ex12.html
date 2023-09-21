@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="./jquery/jquery-1.12.4.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<h3 id="display">이름출력영역</h3>
+		<button id="btn" type="button">테스트버튼</button>
+	</div>
+
+</body>
+<script>
+	let testButton = $("#btn");
+	
+	//testButton.css();
+	//testButton.html();
+	//testButton.on("click", function(){});
+	
+	$("#btn").on("click", function(){
+		console.log("버튼클릭");
+		
+		$("#display").html("<font color='blue'>황일영<font>");
+		console.log($("#display").text());
+		
+	});
+	
+		
+
+	
+</script>
+
+
+</html>
