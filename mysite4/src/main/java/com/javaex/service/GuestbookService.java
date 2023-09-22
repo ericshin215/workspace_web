@@ -15,7 +15,7 @@ public class GuestbookService {
 	private GuestbookDao gbdao;
 	
 	public List<GuestbookVo> getgbList(){
-		System.out.println("d");
+		
 		
 		List<GuestbookVo> gbList = gbdao.getgbList();
 		
@@ -34,6 +34,19 @@ public class GuestbookService {
 		gbdao.guestbookDelete(guestbookVo);
 		
 	}	
+	
+	//방명록 들록 ajax
+	public void addGuest(GuestbookVo gbVo) {
+		// TODO Auto-generated method stub
+		
+		//등록
+		int no = gbdao.insertSelectKey(gbVo);
+		gbdao.addList(gbVo);
+		
+		//데이터 1개 가져오기
+		
+		
+	}
 	
 
 }
