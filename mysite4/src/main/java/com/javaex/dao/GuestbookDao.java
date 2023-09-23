@@ -22,17 +22,17 @@ public class GuestbookDao {
 
 	}
 
-	public void addList(GuestbookVo gbVo) {
+	public int addList(GuestbookVo gbVo) {
 		// TODO Auto-generated method stub
 		
-		sqlSession.insert("guestbook.insertGuestbook", gbVo);
+		return sqlSession.insert("guestbook.insertGuestbook", gbVo);
 		
 	}
 
-	public void guestbookDelete(GuestbookVo guestbookVo) {
+	public int guestbookDelete(GuestbookVo guestbookVo) {
 		// TODO Auto-generated method stub
 		
-		sqlSession.delete("guestbook.deleteGuestbook", guestbookVo);
+		return sqlSession.delete("guestbook.deleteGuestbook", guestbookVo);
 		
 	}
 	
@@ -43,6 +43,15 @@ public class GuestbookDao {
 		
 		return guestbookVo.getNo();
 	}
+	//no의 데이터 1개 가져오기
+	public GuestbookVo selectGuestOne(int no) {
+		System.out.println("GuestbookDao>selectGuestOne()");
+		
+		//GuestbookVo guestbookVo = sqlSession.selectOne("guestbook.selectOneByNo", no);
+		return sqlSession.selectOne("guestbook.selectOneByNo", no);
+	}
+
+	
 
 
 

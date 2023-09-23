@@ -44,16 +44,32 @@ public class ApiGuestbookController {
 		}
 	
 	
+	
+	
 	//방명록 저장 ajax
+	@ResponseBody
 	@RequestMapping(value="/api/guestbook/add", method= {RequestMethod.GET, RequestMethod.POST})
-	public String add(@ModelAttribute GuestbookVo guestbookVo ) {
-		System.out.println("apiGuestbookadd()");
+	public GuestbookVo add(@ModelAttribute GuestbookVo guestbookVo) {
+		System.out.println("ApiGuestbookController.add()");
 		
-		guestbookService.addList(guestbookVo);
-		
-		//데이터 1개 가져오기
-		
-		
-		return "";
+		//all                          //name  password content
+		GuestbookVo gVo = guestbookService.addGuest(guestbookVo);
+		 
+		return gVo;
 	}
+	
+	//방명록 삭제
+	@RequestMapping(value="/api/guestbook/delete", method= {RequestMethod.GET, RequestMethod.POST})
+	public void delete(@ModelAttribute GuestbookVo guestbookVo) {
+		System.out.println("ApiGuestbookController.delete()");
+		
+		//all                          //name  password content
+		guestbookService.deleteGuestBook(guestbookVo);
+		 
+		
+	}
+	
+	
+	
+	
 }

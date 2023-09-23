@@ -12,41 +12,60 @@ import com.javaex.vo.GuestbookVo;
 public class GuestbookService {
 	
 	@Autowired
-	private GuestbookDao gbdao;
+	private GuestbookDao guestbookDao;
 	
 	public List<GuestbookVo> getgbList(){
 		
 		
-		List<GuestbookVo> gbList = gbdao.getgbList();
+		List<GuestbookVo> gbList = guestbookDao.getgbList();
 		
 		return gbList;
 		
 	}
 
-	public void addList(GuestbookVo gbVo) {
+	public int addList(GuestbookVo gbVo) {
 		// TODO Auto-generated method stub
-		gbdao.addList(gbVo);
+		 return guestbookDao.addList(gbVo);
 	}
 
-	public void guestbookDelete(GuestbookVo guestbookVo) {
+	public String guestbookDelete(GuestbookVo guestbookVo) {
 		// TODO Auto-generated method stub
 		
-		gbdao.guestbookDelete(guestbookVo);
+		String state;
+
+		int count = guestbookDao.guestbookDelete(guestbookVo);
+
+		if (count > 0) {
+			state = "succeess";
+		} else {
+			state = "fail";
+		}
+
+		return state;
 		
 	}	
 	
-	//방명록 들록 ajax
-	public void addGuest(GuestbookVo gbVo) {
-		// TODO Auto-generated method stub
-		
-		//등록
-		int no = gbdao.insertSelectKey(gbVo);
-		gbdao.addList(gbVo);
-		
-		//데이터 1개 가져오기
-		
-		
-	}
+	//방명록 등록 ajax
+		public GuestbookVo addGuest(GuestbookVo guestbookVo) {
+			System.out.println("guestbookService/addGuest()");
+			
+			//등록
+			int count = guestbookDao.insertSelectKey(guestbookVo);
+
+			//no 의 데이터 가져오기
+			// no값 확인
+			int no = guestbookVo.getNo();
+			// no데이터 가져오기
+			
+			return guestbookDao.selectGuestOne(no);
+		}
+
+		public void deleteGuestBook(GuestbookVo guestbookVo) {
+			// TODO Auto-generated method stub
+			
+			guestbookDao.guestbookDelete(guestbookVo);
+			
+		}
 	
 
 }
