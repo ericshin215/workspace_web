@@ -192,6 +192,8 @@ $("#gbListArea").on("click", ".btnDelForm", function(){
         
         
         
+        
+        
     });
     
 });
