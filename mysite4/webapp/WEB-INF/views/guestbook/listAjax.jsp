@@ -73,7 +73,7 @@
 							
 						</table>
 						<!-- //guestWrite -->
-					
+					<button id="btnSubmitJson" type="submit">ajax방식으로 등록 요청</button>
 					</form>	
 					
 					
@@ -167,6 +167,10 @@ $("#guestbookForm").on("submit", function(e){
 		}
 	});
 });
+
+
+
+
 	 
 //삭제버튼 눌렀을때
 $("#gbListArea").on("click", ".btnDelForm", function(){

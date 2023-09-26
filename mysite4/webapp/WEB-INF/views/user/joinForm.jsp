@@ -6,16 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- css -->
 <link href="${pageContext.request.contextPath}/assets/css/mysite.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/user.css" rel="stylesheet" type="text/css">
 
-</head>
+<!-- js -->
+<script src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js" type="text/javascript"> </script>
 
+
+</head>
 <body>
 	<div id="wrap">
 
-	   <!-- header -->
-		<jsp:include page="/WEB-INF/views/include/header.jsp"></jsp:include>
+		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
+		<!-- //header -->
+		<!-- //nav -->
 
 		<div id="container" class="clearfix">
 			<div id="aside">
@@ -45,13 +50,14 @@
 	
 				<div id="user">
 					<div id="joinForm">
-						<form action="joinOk" method="get">
+						<form id="formJoin" action="${pageContext.request.contextPath}/user/join" method="get">
 	
 							<!-- 아이디 -->
 							<div class="form-group">
 								<label class="form-text" for="input-uid">아이디</label> 
 								<input type="text" id="input-uid" name="id" value="" placeholder="아이디를 입력하세요">
-								<button type="button" id="">중복체크</button>
+								<button type="button" id="btnIdCheck">중복체크</button>
+								<p id="checkResult"></p>
 							</div>
 	
 							<!-- 비밀번호 -->
@@ -82,7 +88,7 @@
 							<div class="form-group">
 								<span class="form-text">약관동의</span> 
 								
-								<input type="checkbox" id="chk-agree" value="" name="">
+								<input type="checkbox" id="chk-agree" name="agree" value="yes" >
 								<label for="chk-agree">서비스 약관에 동의합니다.</label> 
 							</div>
 							
@@ -90,7 +96,6 @@
 							<div class="button-area">
 								<button type="submit" id="btn-submit">회원가입</button>
 							</div>
-							
 							
 						</form>
 					</div>
@@ -102,12 +107,106 @@
 		</div>
 		<!-- //container  -->
 		
+		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 		<!-- //footer -->
-		<jsp:include page="/WEB-INF/views/include/footer.jsp"></jsp:include>
 
 	</div>
 	<!-- //wrap -->
 
 </body>
+<script type="text/javascript">
+//id중복체크 버튼 클릭했을때
+$("#btnIdCheck").on("click", function(){
+	console.log("버튼클릭");
+	
+	let id = $("#input-uid").val();
+	
+
+	$.ajax({
+		
+		url : "${pageContext.request.contextPath }/user/idCheck",		
+		type : "post",
+		/* contentType : "application/json", */
+		data : {id: id},
+
+		dataType : "json",   /* text */
+		success : function(jsonResult){
+			/*성공시 처리해야될 코드 작성*/
+			console.log(jsonResult);
+			
+			if(jsonResult.result=="success"){
+				if(jsonResult.data == true){
+					$("#checkResult").text("사용할수 있는 id입니다.");
+					
+				}else if(jsonResult.data == false){
+					$("#checkResult").text("사용할수 없는 id입니다.");
+				}
+				else{
+					console.log("잘못된 처리")
+				}
+			}else if(jsonResult.result=="fail"){
+				console.log("통신오류")
+			}
+			
+			
+			/* if(result == "true"){
+ 				$("#checkResult").text("사용할수 있는 id입니다.");	
+ 				
+			}else if(result == "false"){
+				$("#checkResult").text("사용할수 없는 id입니다.");
+			
+			}else{
+				console.log("잘못된 처리");
+			} */
+			
+		},
+		error : function(XHR, status, error) {
+			console.error(status + " : " + error);
+		}
+	});
+
+	
+	
+});
+
+//회원가입 버튼 클릭할떄 (submit버튼은 form에 클릭이벤트)
+$("#formJoin").on("submit", function(){
+	console.log("회원가입 버튼 클릭");
+	
+	//id를 입력안했을때
+	let id = $("#input-uid").val();
+	if(id == "" || id==null){
+		alert("아이디를 입력하세요");
+		return false;
+	}
+	
+	//패스워드 입력안했을때
+	let pw = $("#input-pass").val();
+	if(pw =="" || pw==null){
+		alert("패스워드를 입력하세요");
+		return false;
+	}else if(pw.length < 8){
+		alert("패스워드를 8글자 이상 입력해주세요");
+		return false;
+	}
+	
+	//약관동의
+	let agree = $("#chk-agree").is(":checked")
+	if(agree==false){
+		alert("약관에 동의해 주세요");
+		return false;
+	}
+	
+	//submit의 원래전송을 하지 않아야 할때 return false;
+	return true;
+});
+</script>
+
+
+
+
+
+
+
 
 </html>

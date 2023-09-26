@@ -4,20 +4,24 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.javaex.dao.UserDao;
+import com.javaex.service.UserService;
+import com.javaex.vo.JsonResultVo;
 import com.javaex.vo.UserVo;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
+
+	
 	@Autowired
-	UserDao userDao;
+	private UserService userService;
 
 	@RequestMapping(value = "/loginForm", method = { RequestMethod.GET, RequestMethod.POST })
 	public String loginForm() {
@@ -30,7 +34,7 @@ public class UserController {
 	@RequestMapping(value = "/login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(@ModelAttribute UserVo userVo, HttpSession session) {
 		
-		UserVo authUser = userDao.userSelect(userVo);	
+		UserVo authUser = userService.login(userVo);	
 		
 		System.out.println(authUser);	
 		
@@ -69,7 +73,7 @@ public class UserController {
 		System.out.println(userVo);
 		
 		
-		userDao.userInsert(userVo);		
+		//int count = userService.join(userVo);	
 		
 		return "user/joinOk";
 	}
@@ -88,47 +92,71 @@ public class UserController {
 		return "redirect:/main";
 	}
 	
-	@RequestMapping(value = "/modifyForm", method = { RequestMethod.GET, RequestMethod.POST })
-	public String modifyForm(HttpSession session, Model model) {
+//	@RequestMapping(value = "/modifyForm", method = { RequestMethod.GET, RequestMethod.POST })
+//	public String modifyForm(HttpSession session, Model model) {
+//		
+//		System.out.println("modifyForm");
+//		
+//		
+//		
+//		UserVo authUser = (UserVo)session.getAttribute("authUser");
+//		
+//		
+//		UserVo change = userDao.userSelect2(authUser);
+//		
+//		
+//		model.addAttribute("change",change);	
+//		
+//		
+//		return "user/modifyForm";
+//	}
+//	
+//	@RequestMapping(value = "/modify", method = { RequestMethod.GET, RequestMethod.POST })
+//	public String modify(@ModelAttribute UserVo userVo , HttpSession session) {		
+//		System.out.println("modify");
+//		
+//		
+//		userDao.userUpdate(userVo);	
+//		
+//		
+//		System.out.println(userVo);
+//		
+//		
+//		UserVo authUser = userDao.userSelect(userVo);
+//		
+//		System.out.println(authUser);
+//	
+//		
+//		
+//		session.setAttribute("authUser", authUser);
+//		
+//		
+//		return "redirect:/main";
+//	}
+	
+	//id check
+	@ResponseBody
+	@RequestMapping(value = "/idCheck", method = { RequestMethod.GET, RequestMethod.POST })
+	public JsonResultVo idCheck(@RequestParam(value="id") String id) {
 		
-		System.out.println("modifyForm");
+		System.out.println("idcheck");
+		
+		boolean check=userService.idCheck(id);
+		System.out.println(check);
+		
+		/*
+		 * JsonResultVo jsonResultVo =new JsonResultVo("success", check, null);
+		 * JsonResultVo jsonResultVo =new JsonResultVo("fail", null, "통신오류");
+		 */
 		
 		
+		JsonResultVo jsonResultVo = new JsonResultVo();
+		jsonResultVo.success(check);
 		
-		UserVo authUser = (UserVo)session.getAttribute("authUser");
-		
-		
-		UserVo change = userDao.userSelect2(authUser);
-		
-		
-		model.addAttribute("change",change);	
-		
-		
-		return "user/modifyForm";
+		return jsonResultVo;
 	}
 	
-	@RequestMapping(value = "/modify", method = { RequestMethod.GET, RequestMethod.POST })
-	public String modify(@ModelAttribute UserVo userVo , HttpSession session) {		
-		System.out.println("modify");
-		
-		
-		userDao.userUpdate(userVo);	
-		
-		
-		System.out.println(userVo);
-		
-		
-		UserVo authUser = userDao.userSelect(userVo);
-		
-		System.out.println(authUser);
 	
 		
-		
-		session.setAttribute("authUser", authUser);
-		
-		
-		return "redirect:/main";
-	}
-
 	
 }

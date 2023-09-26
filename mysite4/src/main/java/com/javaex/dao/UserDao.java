@@ -21,9 +21,9 @@ public class UserDao {
 	}
 
 	
-	public void userInsert(UserVo userVo) {
+	public int userInsert(UserVo userVo) {
 		
-		sqlSession.insert("user.insert", userVo);
+		return sqlSession.insert("user.insert", userVo);
 	}
 
 	
@@ -41,5 +41,14 @@ public class UserDao {
 		sqlSession.update("user.update", userVo);
 		
 	}	
+	
+	//id 체크
+	public UserVo selectUserOneById(String id) {
+		
+		UserVo userVo = sqlSession.selectOne("user.selectUserOneById", id);
+		System.out.println(userVo);
+		return userVo;
+		
+	}
 	
 }

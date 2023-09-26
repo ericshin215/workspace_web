@@ -30,7 +30,7 @@
 
 
 
-	<select  id="select2" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
+	<select id="select2" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
 		<![CDATA[
 		SELECT  id,
 				password,
@@ -53,5 +53,16 @@
 		]]>
 	</update>
 
+	<!-- id 체크 -->
+	<select id="selectUserOneById" parameterType="String" resultType="com.javaex.vo.UserVo">
+		<![CDATA[
+		SELECT  no, 
+				id,
+				name,
+				gender
+		FROM users
+		where id = #{id} 
+		]]>
+	</select>
 
 </mapper>
