@@ -28,6 +28,17 @@
 	             )
 		 ]]>
 	</insert>
+	
+	
+	<select id="selectBlogHost" parameterType="String" resultType="com.javaex.vo.UserVo">
+		<![CDATA[
+		SELECT  userNo, 
+				userName,
+				id
+		FROM users
+		where id = #{id}
+		]]>
+	</select>
 
 
 

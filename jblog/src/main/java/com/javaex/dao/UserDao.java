@@ -25,4 +25,9 @@ public class UserDao {
 		
 	}
 
+	public UserVo selectBlogHost(String id) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("users.selectBlogHost", id);
+	}
+
 }
