@@ -18,9 +18,14 @@ public class BlogService {
 	@Autowired
 	public UserDao userDao;
 	
+	
+	public void blogInsert(BlogVo blogVo) {
+		
+		blogDao.blogInsert(blogVo);
+	}
 
 	public BlogVo selectBlog(String id) {
-		// TODO Auto-generated method stub
+		
 		
 		
 		return blogDao.selectBlog(id);
@@ -28,10 +33,16 @@ public class BlogService {
 
 
 	public UserVo selectBlogHost(String id) {
-		// TODO Auto-generated method stub
+		
 		return userDao.selectBlogHost(id);
 	}
 	
+	public void blogUpdate( BlogVo blogVo) {
+		
+		blogDao.blogUpdate(blogVo);
+		
+		
+	}
 	
 	
 	

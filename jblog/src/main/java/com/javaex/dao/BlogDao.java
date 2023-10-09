@@ -13,7 +13,7 @@ public class BlogDao {
 	private SqlSession sqlSession;
 	
 	public BlogVo selectBlog(String id) {
-		// TODO Auto-generated method stub
+		
 		
 		
 		
@@ -21,5 +21,22 @@ public class BlogDao {
 		
 		return sqlSession.selectOne("blog.selectBlog", id);
 	}
+	
+	
+
+	public void blogInsert(BlogVo blogVo) {
+		
+		sqlSession.insert("blogInsert", blogVo);
+	}
+
+	
+
+	public void blogUpdate(BlogVo blogVo) {
+		
+		System.out.println(blogVo);
+		sqlSession.update("blogUpdate", blogVo);
+	}
+
+	
 
 }
