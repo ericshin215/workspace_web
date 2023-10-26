@@ -32,7 +32,7 @@
 		  <![CDATA[        
 		    UPDATE blog
 			set blogTitle = #{blogTitle}
-			   ,logoFile = #{logoFile}
+			   
 			where id = #{id}
 		 ]]>
 	</update>

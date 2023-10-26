@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+.contents {
+	width:1250px;
+	margin: auto;
+	background: grey;
+	min-height: 100vh;
+	position: relative;
+	padding-top: 15px;
+	padding-left: 15px;
+}
+
+.contents .userName {
+	margin: 5px 0 10px;
+	font-size: 28px;
+    line-height: 34px;
+}
+
+.backgroundImg {
+	
+	width: 1250px;
+	height: 350px;
+	/*background-color: green;*/
+	margin : auto;
+}
+
+.backgroundImg > img{
+	width: 1250px;
+	height: 350px;
+}
+
+
+.profileSection {
+	margin: 16px 0;
+}
+
+
+.profileImg {
+	width: 136px;
+	 height: 136px;
+	
+}
+
+/* 팔로우 버튼 스타일 */
+.followButton {
+  background-color: rgb(252, 115, 3); /* 주황색 */
+  color: #fff; /* 텍스트 색상 */
+  padding: 10px 20px; /* 패딩 설정 */
+  font-size: 16px; /* 폰트 크기 */
+  border: none; /* 테두리 없음 */
+  border-radius: 5px; /* 테두리 모서리 둥글게 */
+  cursor: pointer; /* 커서 모양 변경 */
+}
+
+.profileImg > img {
+	width: 136px;
+	 height: 136px;
+	
+}
+
+.profileWrapper {
+	width: 600px;
+	
+}
+
+
+.contents h1 {
+	font-size: 34px;
+	font-weight: bold;
+	line-height: 41px;
+}

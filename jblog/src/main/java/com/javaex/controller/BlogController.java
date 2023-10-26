@@ -30,13 +30,11 @@ public class BlogController {
 	  model.addAttribute("blogVo", blogVo);
 	  
 	  
-	  UserVo userVo = blogService.selectBlogHost(id);
-	  model.addAttribute("userVo", userVo);
-	  System.out.println(blogVo);
-	  
+	 
 	 
 	  
-	  return "blog/blog-main"; }
+	  return "blog/blog-main"; 
+	  }
 	  
 	// 블로그 기본설정 /////////////////////////////////////////////////
 		@RequestMapping("/{id}/admin/basic")
@@ -49,8 +47,7 @@ public class BlogController {
 
 		// 블로그 대문명, 사진 변경하기
 		@RequestMapping(value = "/{id}/admin/basic/update", method = { RequestMethod.GET, RequestMethod.POST })
-		public String update(@RequestParam(value = "file", required = false) MultipartFile logoFile,
-				@RequestParam(value = "blogTitle") String blogTitle, HttpSession session) {
+		public String update(@RequestParam(value = "blogTitle") String blogTitle, HttpSession session) {
 			System.out.println("블로그 업데이트");
 			UserVo authUser = (UserVo) session.getAttribute("authUser");
 			BlogVo blogVo = new BlogVo(authUser.getId(), authUser.getUserName(), blogTitle);
