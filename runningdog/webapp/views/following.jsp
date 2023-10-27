@@ -47,15 +47,24 @@
 			<div class="mainWrapper">
 
 				<div class="mainPosts">
-					
+
 					<div class="category">
-					<div class="tab record active">산책기록</div>
-					<div class="tab meeting">산책모임</div>
-					<div class="tab following">팔로잉</div>
-					<div class="tab blank"></div>
+						<div class="tab record active">산책기록</div>
+						<div class="tab meeting">산책모임</div>
+						<div class="tab following">팔로잉</div>
+						<div class="tab blank"></div>
 					</div>
-					
-					
+
+
+					<h2>팔로잉</h2>
+					<div class="selector">
+					<select class="form-select form-select-sm" aria-label="Small select example">
+						<option selected>팔로잉</option>
+						<option value="1">팔로워</option>
+						
+						
+					</select>
+					</div>
 					
 
 
@@ -76,18 +85,18 @@
 					</div>
 					<div class="socialWrapper">
 						<div class="socialBox">
-						<h3 class="social">소셜 네트워크</h3>
-						<div class="followingBox">
-						<div class="followText">팔로잉</div>
-						<div class="followNum">1</div>
+							<h3 class="social">소셜 네트워크</h3>
+							<div class="followingBox">
+								<div class="followText">팔로잉</div>
+								<div class="followNum">1</div>
+							</div>
+							<div class="followerBox">
+								<div class="followText">팔로워</div>
+								<div class="followNum">0</div>
+							</div>
 						</div>
-						<div class="followerBox">
-						<div class="followText">팔로워</div>
-						<div class="followNum">0</div>
-						</div>
-						</div>
-						
-						
+
+
 					</div>
 					<div class="stats"></div>
 				</div>
