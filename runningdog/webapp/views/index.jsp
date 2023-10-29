@@ -25,7 +25,9 @@
 
 
 			<div class="profileSection">
-				<div class="calendar"></div>
+				<div class="calendar">
+				<img src="${pageContext.request.contextPath}/assets/images/캘린더.png" alt="">
+				</div>
 
 				<div class="profileWrapper">
 					<div class="wrap">
@@ -35,7 +37,29 @@
 						<h1 class="userName">호두마루</h1>
 						<button class="followButton">팔로우</button>
 					</div>
-					<div class="dogCard"></div>
+					<div class="mainDogCard">
+					<div class="coworkingDog"> 산책 파트너</div>
+					<div class="maindogCardBox">
+					<div class="mainDogCard1">
+					<img src="${pageContext.request.contextPath}/assets/images/마루쉐.png" alt="">
+					<div class="mainDogCardName">마루</div>
+					</div>
+					<div class="mainDogCard2">
+					<img src="${pageContext.request.contextPath}/assets/images/리트리버.png" alt="">
+					<div class="mainDogCardName">리트리버</div>
+					</div>
+					<div class="mainDogCard3">
+					<img src="${pageContext.request.contextPath}/assets/images/도지.png" alt="">
+					<div class="mainDogCardName">도지</div>
+					</div>
+					<div class="mainDogCard4">
+					<img src="${pageContext.request.contextPath}/assets/images/연탄.png" alt="">
+					<div class="mainDogCardName">연탄</div>
+					</div>
+					</div>
+					
+					
+					</div>
 
 
 				</div>
@@ -66,12 +90,22 @@
 					<div class="clubsWrapper">
 						<h3 class="clubs">동아리</h3>
 						<div class="clubBox">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
+							<div class="clubCard1">
+							<img src="${pageContext.request.contextPath}/assets/images/산책로.png" alt="">
+							<div class="clubCardName">동아리1</div>
+							</div>
+							<div class="clubCard2">
+							<img src="${pageContext.request.contextPath}/assets/images/산책로3.png" alt="">
+							<div class="clubCardName">동아리2</div>
+							</div>
+							<div class="clubCard3">
+							<img src="${pageContext.request.contextPath}/assets/images/산책로2.png" alt="">
+							<div class="clubCardName">동아리3</div>
+							</div>
+							<div class="clubCard4">
+							<img src="${pageContext.request.contextPath}/assets/images/산책로.png" alt="">
+							<div class="clubCardName">동아리4</div>
+							</div>
 						</div>
 					</div>
 					<div class="socialWrapper">
