@@ -9,7 +9,7 @@
 <link href="${pageContext.request.contextPath}/assets/css/header.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/index.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/detail.css" rel="stylesheet" type="text/css">
-
+<script src="https://kit.fontawesome.com/109d7bd609.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 <body>

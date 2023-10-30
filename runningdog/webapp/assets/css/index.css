@@ -1,4 +1,22 @@
  @charset "UTF-8";
+.infoHeader {
+	display: flow-root;
+}
+
+.left.location {
+	font-size: 25px;
+	font-weight: bold;
+	float: left;
+}
+
+.myColor {
+	color: #FC5200;
+	font-weight: bold;
+}
+
+.right {
+	float: right;
+}
 
   .contents {
     width: 1250px;
@@ -290,9 +308,327 @@ h2{
 }
 
 .stats {
-	background-color: mediumpurple;
+	
 	width: 360px;
 	height: 600px;
 	padding: 20px 0px;
 	
 }
+
+.MRprofileBox{
+	   display: flow-root;
+	padding: 15px;
+	border-style: solid;
+  	border-color:#dee2e6;
+	width: 780px;
+	float: left;
+	   
+   }
+   .MRprofileWrapper1{
+	   float: left;
+	   width: 110px;
+   }
+  .MRprofileImg1 {
+    width: 70px;
+    height: 70px;
+    
+    
+  }
+  
+  .MRprofileImg1 > img {
+    width: 70px;
+    height: 70px;
+    
+  }
+  
+  .MRuserName1{
+	  margin-top:5px;
+	  font-size: 14px;
+	  font-weight: bold;
+	  width: 120px;
+	  
+	  
+  }
+  .MRtitleBox{
+	  width: 300px;
+	  height: 50px;
+  	float: left;
+  	margin-right: 30px;
+	  
+  }
+  
+  .MRtime{
+	  
+	  font-size: 18px;
+    line-height: 16px;
+  }
+  
+  .MRtitle{
+	  font-size: 28px;
+    line-height: 34px;
+  }
+  
+  .MRrecordBox{
+	  width: 300px;
+	  height: 100px;
+	 
+	  float: left;
+	  margin-top: 5px;
+	  display: flow-root;
+	  
+	  
+  }
+  
+  .MRdistanceBox{
+	  float: left;
+	  width: 100px;
+	  margin-right: 10px;
+	  
+  }
+  .MRrecordData{
+	  font-size: 20px;
+	  width: 90px;
+  }
+  
+  .MRtimeBox{
+	  float: left;
+	  
+  }
+  .MRlabel{
+	  font-size: 12px;
+	  width: 90px;
+  }
+  
+  .MRdogName{
+	  text-align: center;
+  }
+  
+  .MRdogCardBox{
+	  width:300px;
+	  height: 100px;
+	  
+	  float: right;
+	  padding: 20px;
+  }
+  
+  .MRdogCards{
+	  margin-top: 5px;
+	  display: flow-root;
+	 
+	  
+  }
+  .MRdogCards div{
+	  margin-right: 10px;
+  }
+  
+ .MRdogCard1{
+	 float: left;
+ }
+ 
+ .MRdogCard2{
+	 float: left;
+ }
+ .MRdogCard3{
+	 float: left;
+ }
+  
+  .MRdogCardBox img{
+	  width: 50px;
+	  height: 50px;
+  }
+  
+  .MRpartnerDoglabel{
+	  font-size: 20px;
+  }
+  .wrappingBox{
+	  float: left;
+	  width: 310px;
+  }
+  
+  .modifyDelete{
+	 float: right;
+	  
+  }
+  
+  .modifyButton{
+	   background-color:grey;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+	  
+  }
+  
+  .deleteButton{
+	   background-color:grey;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+	  
+  }
+  
+  .MRwalkRecordSection{
+	  padding:10px;
+	  margin-top: 10px;
+	  margin-bottom: 10px;
+	  width: 780px;
+	  height: 760px;
+	  border-style: solid;
+  	border-color:#dee2e6;
+	  
+  }
+  .MRwalkData > img{
+	  margin-bottom: 10px;
+  }
+  
+  
+  .MRwalkData > img{
+	  width: 745px;
+	  height: 380px;
+  }
+  
+  .MRpictures {
+	  display: flow-root;
+  }
+  
+  .MRpictures img{
+	  float: left;
+	  margin-right: 20px;
+	  width: 166px;
+	  height: 166px;
+	 
+  }
+  
+  .MRcommentInputBox{
+	  height: 62px;
+	  display: flow-root;
+  }
+  
+  .MRinput-group{
+	  float: left;
+	  width: 670px;
+  }
+  
+  .MRreplyButton {
+    background-color:grey;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 28px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+  }
+  
+  
+  .MRcomments img{
+	  width: 60px;
+	  height: 60px;
+	  float: left;
+	  
+  }
+  
+  .MRcomments > div{
+	  display: flow-root;
+	  border-style: solid;
+	 border-color:#dee2e6;
+  	border-width: 0 0 1px 0 ;
+  	margin-bottom: 10px;
+  }
+  
+  .MRuserIdandContent{
+	  margin-left: 5px;
+	  float: left;
+  }
+  
+  .MRreplyUserId{
+	  font-size: 16px;
+	   font-weight: bold;
+  }
+  
+  .MRreplyContent{
+	  font-size: 14px;
+  }
+  
+  .MRreplyDate{
+	  float: right;
+	  margin-top:10px;
+	  margin-right:10px;
+  }
+  
+  .MRborder{
+	  margin-top:10px;
+	  border-style: solid;
+	 border-color:black;
+  	border-width: 0 0 1px 0 ;
+  }
+
+	
+
+  .followings{
+	  display: flow-root;
+  }
+  
+  .followings > div{
+	  float: left;
+	  width: 770px;
+	  margin-top: 5px;
+	  border-style: solid;
+	 border-color:#dee2e6;
+  	border-width: 0 0 1px 0 ;
+	  
+  }
+  
+  .followings img{
+	  width: 60px;
+	  height: 60px;
+	  float: left;
+  }
+  
+  
+  .followings button{
+	  float: right;
+  }
+  
+  .followingNickname{
+	  font-size: 18px;
+  }
+  .statslabel{
+	  margin-bottom: 20px;
+	  font-size: 22px;
+  }
+  
+  
+  .statsTable{
+	  margin-bottom: 20px;
+	  border-style: solid;
+	 border-color:#dee2e6;
+  }
+  
+  .statsTable td{
+	  width: 150px;
+	  border-left: 1px solid #f0f0f5;
+	  border-bottom: 1px solid #f0f0f5;
+    padding: 5px 10px;
+    background-color: rgba(0,0,0,0.03);
+  }
+  
+  .statsTableAll{
+	  border-style: solid;
+	 border-color:#dee2e6;
+  }
+  
+  .statsTableAll td{
+	  width: 150px;
+	  border-left: 1px solid #f0f0f5;
+	  border-bottom: 1px solid #f0f0f5;
+    padding: 5px 10px;
+    background-color: rgba(0,0,0,0.03);
+  }
